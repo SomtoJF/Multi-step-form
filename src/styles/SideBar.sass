@@ -1,0 +1,26 @@
+@use "../index"
+
+#side-bar
+    width: 40%
+    height: 100%
+    background-image: url("../assets/bg-sidebar-desktop.svg") 
+    background-repeat: no-repeat
+    background-size: contain
+    border-radius: 15px
+    padding: 5% 2.5%
+    box-sizing: border-box
+    color: index.$light-background-color
+
+#side-bar>ul
+    display: flex
+    flex-direction: column
+    gap: 10px
+    justify-content: flex-start
+    margin: 0px
+    padding: 0px
+    li
+        list-style-type: decimal-leading-zero
+        display: grid
+        grid-template-rows: 1fr 1fr
+        grid-template-columns: 1fr 1fr
+        height: 10%
