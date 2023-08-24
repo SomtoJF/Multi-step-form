@@ -36,7 +36,10 @@ export default function SideBar({ currentStep, setCurrentStep }: SideBarProps) {
 							onClick={() => setCurrentStep(step.key)}
 							style={
 								currentStep == step.key
-									? { backgroundColor: "hsl(228, 100%, 84%)", border: "none" }
+									? {
+											backgroundColor: "hsl(228, 100%, 84%)",
+											border: "solid 1px hsl(228, 100%, 84%)",
+									  }
 									: {}
 							}
 						>
