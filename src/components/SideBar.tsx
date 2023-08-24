@@ -20,13 +20,28 @@ const steps = [
 	},
 ];
 
-export default function SideBar() {
+interface SideBarProps {
+	currentStep: number;
+	setCurrentStep: (step: number) => void;
+}
+
+export default function SideBar({ currentStep, setCurrentStep }: SideBarProps) {
 	return (
 		<aside id="side-bar">
 			<ul>
 				{steps.map((step) => (
 					<li key={uuidv4()}>
-						<button className="list-marker">{step.key}</button>
+						<button
+							className="list-marker"
+							onClick={() => setCurrentStep(step.key)}
+							style={
+								currentStep == step.key
+									? { backgroundColor: "hsl(228, 100%, 84%)", border: "none" }
+									: {}
+							}
+						>
+							{step.key}
+						</button>
 						<div>{`STEP ${step.key}`}</div>
 						<div>{step.prompt.toUpperCase()}</div>
 					</li>
