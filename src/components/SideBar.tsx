@@ -23,15 +23,15 @@ const steps = [
 export default function SideBar() {
 	return (
 		<aside id="side-bar">
-			<ol>
+			<ul>
 				{steps.map((step) => (
 					<li key={uuidv4()}>
-						<div>{step.key}</div>
+						<button className="list-marker">{step.key}</button>
 						<div>{`STEP ${step.key}`}</div>
 						<div>{step.prompt.toUpperCase()}</div>
 					</li>
 				))}
-			</ol>
+			</ul>
 		</aside>
 	);
 }

@@ -12,15 +12,51 @@
     color: index.$light-background-color
 
 #side-bar>ul
+    height: 100%
+    width: 100%
     display: flex
     flex-direction: column
-    gap: 10px
+    gap: 5%
     justify-content: flex-start
     margin: 0px
     padding: 0px
+
+    li > div
+        width: 100%
+        height: 100%
+
+    li > div:nth-child(2)
+        font-weight: 100
+        font-size: 0.8rem
+        color: index.$cool-gray
+
+    li > div:nth-child(3)
+        font-family: index.$font-medium
+        letter-spacing: 2px
+
     li
-        list-style-type: decimal-leading-zero
+        list-style-type: none
         display: grid
         grid-template-rows: 1fr 1fr
-        grid-template-columns: 1fr 1fr
-        height: 10%
+        grid-template-columns: 1fr 7fr
+        height: max(40px, 5%)
+        align-items: center
+
+        .list-marker
+            width: 30px
+            height: 30px
+            grid-row: 1 / 3
+            border: solid 1px index.$light-background-color
+            text-align: center
+            line-height: 30px
+            border-radius: 50%
+            transition: 200ms
+            color: inherit
+            background-color: inherit
+            margin: 0px
+            padding: 0px
+
+        .list-marker:hover
+            background-color: index.$pastel-blue
+            border: solid 1px index.$pastel-blue
+            border: none
