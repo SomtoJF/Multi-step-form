@@ -1,0 +1,32 @@
+@use "../index"
+
+.plan-button-container
+    width: 100%
+    display: flex
+    justify-content: space-between
+    height: 170px
+    &>button
+        width: 30%
+        box-sizing: border-box
+        padding: 3%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: flex-start
+        background-color: index.$light-background-color
+        border: solid 1px index.$light-gray
+        border-radius: 10px
+        transition: 500ms
+        &:hover
+            border: solid 1px index.$purplish-blue
+
+        .plan-info
+            &>div:first-child
+                color: index.$marine-blue
+                font-family: index.$font-bold
+                text-align: left
+            &>div:nth-child(2)
+                color: index.$cool-gray
+
+                
