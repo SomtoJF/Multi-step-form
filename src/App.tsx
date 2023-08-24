@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import "./App.sass";
 import SideBar from "./components/SideBar";
 
