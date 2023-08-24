@@ -62,3 +62,22 @@
         .list-marker:hover
             background-color: index.$pastel-blue
             border: solid 1px index.$pastel-blue
+
+@media all and (max-width: 760px) 
+  #side-bar
+    width: 100vw
+    border-radius: 0px
+    background-image: url("../assets/bg-sidebar-mobile.svg")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    height: 30vh
+    &>ul
+        flex-direction: row
+        justify-content: center
+        gap: 5%
+        &>li
+            display: block
+        &>li>div
+            display: none
+
