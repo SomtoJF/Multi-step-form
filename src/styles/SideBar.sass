@@ -34,6 +34,10 @@
         font-family: index.$font-medium
         letter-spacing: 2px
 
+    li:hover>.list-marker
+        background-color: index.$pastel-blue
+        border: solid 1px index.$pastel-blue
+
     li
         list-style-type: none
         display: grid
@@ -41,6 +45,8 @@
         grid-template-columns: 1fr 7fr
         height: max(40px, 5%)
         align-items: center
+        cursor: pointer
+
 
         .list-marker
             width: 30px
@@ -55,8 +61,3 @@
             background-color: inherit
             margin: 0px
             padding: 0px
-
-        .list-marker:hover
-            background-color: index.$pastel-blue
-            border: solid 1px index.$pastel-blue
-            border: none
