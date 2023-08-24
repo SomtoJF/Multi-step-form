@@ -1,0 +1,114 @@
+@use "../index"
+    
+#popover > form
+    width: 70%
+    height: 100%
+    border-radius: 15px
+    box-sizing: border-box
+    padding: 5% 10%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    color: index.$marine-blue
+    background-color: index.$light-background-color
+    
+.form-fields
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    gap: 10px
+    width: 100%
+
+
+    &>h1
+        font-family: index.$font-bold
+        margin: 0px
+
+    label
+        position: relative
+        top: 5px
+        font-size: 0.9rem
+        display: flex
+        justify-content: space-between
+        
+        &>div:nth-child(2)
+            font-family: index.$font-bold
+            color: index.$strawberry-red
+
+    input
+        height: 40px
+        width: 100%
+        border-radius: 10px
+        font-family: index.$font-medium
+        font-size: 1rem
+        border: solid 1px index.$light-gray
+        outline: none
+        padding-left: 15px 
+        color: index.$marine-blue
+
+        &:invalid
+            border: solid 1px index.$strawberry-red
+
+        &:focus
+            border: solid 1px index.$purplish-blue
+
+        &:valid
+            background-color: inherit
+
+    .form-fields > *
+        display: block
+
+#information-paragraph   
+    color: index.$cool-gray
+    padding: 0px
+    margin: 0px
+    margin-bottom: 5%
+
+#form-stepper-container
+    height: 10%
+    width: 100%
+    display: flex
+    flex-direction: row-reverse
+    justify-content: space-between
+
+    button
+        padding: 15px 5px
+        height: fit-content
+        width: 120px
+        border: none
+        border-radius: 10px
+        font-family: index.$font-medium
+        color: index.$light-background-color
+        background-color: index.$marine-blue
+        font-size: 14px
+
+    // .next-button:hover
+    //     background-color: 
+
+
+    .back-button
+        color: index.$cool-gray
+        background-color: inherit
+        text-align: left
+
+    .back-button:hover
+        color: index.$marine-blue
+
+@media all and (max-width: 760px) 
+    #popover>form
+        margin-top: -15%
+        width: 80%
+    #form-stepper-container
+        box-sizing: border-box
+        background-color: index.$light-background-color
+        position: absolute
+        align-items: center
+        padding: 0px 10px
+        bottom: 0px
+        left: 0px
+        width: 100vw
+        &>button
+            border-radius: 5px
+
+
+
