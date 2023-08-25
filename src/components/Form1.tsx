@@ -2,12 +2,12 @@ import { FormEvent } from "react";
 import { FormDataInterface } from "../App";
 import Label from "./Label";
 
-type props = {
+interface FormPropsInterface {
 	formData: FormDataInterface;
 	setFormData: (object: FormDataInterface) => void;
-};
+}
 
-export default function Form1({ formData, setFormData }: props) {
+export default function Form1({ formData, setFormData }: FormPropsInterface) {
 	const handleNameChange = (e: FormEvent<HTMLInputElement>) => {
 		setFormData({ ...formData, name: e.currentTarget.value });
 	};
@@ -58,3 +58,5 @@ export default function Form1({ formData, setFormData }: props) {
 		</>
 	);
 }
+
+export type { FormPropsInterface };
