@@ -1,12 +1,7 @@
 import { FormEvent } from "react";
-import { FormDataInterface } from "../../App";
+import { FormPropsInterface } from "../../Types";
 import { AsYouType } from "libphonenumber-js";
 import Label from "../Label";
-
-interface FormPropsInterface {
-	formData: FormDataInterface;
-	setFormData: (object: FormDataInterface) => void;
-}
 
 export default function Form1({ formData, setFormData }: FormPropsInterface) {
 	const handleNameChange = (e: FormEvent<HTMLInputElement>) => {
@@ -65,5 +60,3 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 		</>
 	);
 }
-
-export type { FormPropsInterface };

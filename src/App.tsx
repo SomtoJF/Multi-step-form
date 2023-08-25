@@ -7,27 +7,7 @@ import StepTwo from "./components/FormStages/Form2";
 import StepThree from "./components/FormStages/Form3";
 import StepFour from "./components/FormStages/Form4";
 import Confirmation from "./components/FormStages/Confirmation";
-
-type planType = {
-	name: string;
-	price: number;
-	isMonthlyPlan: boolean;
-};
-
-type addOnType = {
-	name: string;
-	description: string;
-	price: number;
-	isMonthlyPlan: boolean;
-};
-
-interface FormDataInterface {
-	name: string;
-	email: string;
-	phone: string;
-	plan: planType;
-	addOns: Array<addOnType | null>;
-}
+import { FormDataInterface } from "./Types";
 
 const defaultFormData: FormDataInterface = {
 	name: "",
@@ -98,4 +78,3 @@ function App() {
 }
 
 export default App;
-export type { FormDataInterface, addOnType };
