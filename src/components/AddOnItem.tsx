@@ -11,6 +11,8 @@ type propType = {
 export default function AddOnItem({ item, formData, setFormData }: propType) {
 	const [isSelected, setIsSelected] = useState(false);
 
+	const getSuffix = formData.plan.isMonthlyPlan ? "/mo" : "/yr";
+
 	useEffect(() => {
 		formData.addOns.includes(item) ? setIsSelected(true) : setIsSelected(false);
 	}, [formData.addOns]);
@@ -37,7 +39,7 @@ export default function AddOnItem({ item, formData, setFormData }: propType) {
 			</button>
 			<h3>{item.name}</h3>
 			<p>{item.description}</p>
-			<div>{item.price}</div>
+			<div>+${item.price + getSuffix}</div>
 		</div>
 	);
 }

@@ -12,14 +12,14 @@ type displayedPlanTypeInterface = "Monthly" | "Yearly";
 const plansInformation = {
 	icons: [arcadeIcon, advancedIcon, proIcon],
 	monthly: [
-		{ name: "Arcade", price: "$9/mo", isMonthlyPlan: true },
-		{ name: "Advanced", price: "$12/mo", isMonthlyPlan: true },
-		{ name: "Pro", price: "$15/mo", isMonthlyPlan: true },
+		{ name: "Arcade", price: 9, isMonthlyPlan: true },
+		{ name: "Advanced", price: 12, isMonthlyPlan: true },
+		{ name: "Pro", price: 15, isMonthlyPlan: true },
 	],
 	yearly: [
-		{ name: "Arcade", price: "$90/yr", isMonthlyPlan: false },
-		{ name: "Advanced", price: "$120/yr", isMonthlyPlan: false },
-		{ name: "Pro", price: "$150/yr", isMonthlyPlan: false },
+		{ name: "Arcade", price: 90, isMonthlyPlan: false },
+		{ name: "Advanced", price: 120, isMonthlyPlan: false },
+		{ name: "Pro", price: 150, isMonthlyPlan: false },
 	],
 };
 
@@ -27,6 +27,7 @@ export default function Form2({ formData, setFormData }: FormPropsInterface) {
 	const [displayedPlans, setDisplayedPlans] = useState(
 		plansInformation.monthly
 	);
+	const [priceSuffix, setPriceSuffix] = useState<"/mo" | "/yr">("/mo");
 	const [displayMonthlyPlans, setDisplayMonthlyPlans] = useState(true);
 	const selectedPlanStyles = {
 		backgroundColor: "hsl(217, 100%, 97%)",
@@ -39,9 +40,13 @@ export default function Form2({ formData, setFormData }: FormPropsInterface) {
 		useState<displayedPlanTypeInterface>("Monthly");
 
 	useEffect(() => {
-		displayedPlans[0].isMonthlyPlan == true
-			? setDisplayedPlanType("Monthly")
-			: setDisplayedPlanType("Yearly");
+		if (displayedPlans[0].isMonthlyPlan) {
+			setDisplayedPlanType("Monthly");
+			setPriceSuffix("/mo");
+		} else {
+			setDisplayedPlanType("Yearly");
+			setPriceSuffix("/yr");
+		}
 	}, [displayedPlans]);
 
 	useEffect(() => {
@@ -69,7 +74,7 @@ export default function Form2({ formData, setFormData }: FormPropsInterface) {
 						/>
 						<div className="plan-info">
 							<div>{plan.name}</div>
-							<div>{plan.price}</div>
+							<div>${plan.price + priceSuffix}</div>
 						</div>
 					</button>
 				))}

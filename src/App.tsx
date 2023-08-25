@@ -9,14 +9,14 @@ import StepFour from "./components/Form4";
 
 type planType = {
 	name: string;
-	price: string;
+	price: number;
 	isMonthlyPlan: boolean;
 };
 
 type addOnType = {
 	name: string;
 	description: string;
-	price: string;
+	price: number;
 	isMonthlyPlan: boolean;
 };
 
@@ -34,7 +34,7 @@ const defaultFormData: FormDataInterface = {
 	phone: "",
 	plan: {
 		name: "",
-		price: "",
+		price: 0,
 		isMonthlyPlan: true,
 	},
 	addOns: [],
@@ -56,7 +56,7 @@ function App() {
 						) : currentStep === 3 ? (
 							<StepThree formData={formData} setFormData={setFormData} />
 						) : currentStep === 4 ? (
-							<StepFour />
+							<StepFour formData={formData} setFormData={setFormData} />
 						) : null}
 					</div>
 					<section id="form-stepper-container">
