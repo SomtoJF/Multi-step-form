@@ -4,9 +4,10 @@
     width: 100%
     display: flex
     justify-content: space-between
+    gap: 10px
     height: 170px
     &>button
-        width: 30%
+        width: max(30%, 115px)
         box-sizing: border-box
         padding: 3%
         height: 100%
@@ -22,11 +23,26 @@
             border: solid 1px index.$purplish-blue
 
         .plan-info
+            &>*
+                margin: 0px
+                padding: 0px
+                text-align: left
             &>div:first-child
                 color: index.$marine-blue
                 font-family: index.$font-bold
                 text-align: left
             &>div:nth-child(2)
                 color: index.$cool-gray
+
+@media all and (max-width: 760px) 
+    .plan-button-container
+        flex-direction: column
+        justify-content: center
+        &>button
+            width: 100%
+            flex-direction: row
+            justify-content: flex-start
+            gap: 5%
+
 
                 
