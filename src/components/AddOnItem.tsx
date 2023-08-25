@@ -1,4 +1,4 @@
-import React, { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FormDataInterface, addOnType } from "../App";
 import checkMarkIcon from "../assets/icon-checkmark.svg";
 
@@ -15,7 +15,7 @@ export default function AddOnItem({ item, formData, setFormData }: propType) {
 		formData.addOns.includes(item) ? setIsSelected(true) : setIsSelected(false);
 	}, [formData.addOns]);
 
-	function handleAddOnSelection(e: MouseEvent) {
+	function handleAddOnSelection() {
 		isSelected ? removeThisItem() : addThisItem();
 	}
 	function addThisItem() {
@@ -33,7 +33,7 @@ export default function AddOnItem({ item, formData, setFormData }: propType) {
 			onClick={handleAddOnSelection}
 		>
 			<button type="button" className="checkbox">
-				{isSelected ? <img src={checkMarkIcon} alt="chekcmark-icon" /> : null}
+				{isSelected ? <img src={checkMarkIcon} alt="checkmark-icon" /> : null}
 			</button>
 			<h3>{item.name}</h3>
 			<p>{item.description}</p>
