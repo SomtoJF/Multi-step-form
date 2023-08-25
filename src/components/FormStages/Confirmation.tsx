@@ -1,5 +1,5 @@
-import confirmIcon from "../assets/icon-thank-you.svg";
-import "../styles/Confirmation.sass";
+import confirmIcon from "../../assets/icon-thank-you.svg";
+import "../../styles/FormStyles/Confirmation.sass";
 
 export default function Confirmation() {
 	return (

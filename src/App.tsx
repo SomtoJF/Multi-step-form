@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./App.sass";
 import SideBar from "./components/SideBar";
-import "./styles/Form.sass";
+import "./styles/FormStyles/Form.sass";
 import StepOne from "./components/FormStages/Form1";
 import StepTwo from "./components/FormStages/Form2";
 import StepThree from "./components/FormStages/Form3";
 import StepFour from "./components/FormStages/Form4";
-import Confirmation from "./components/Confirmation";
+import Confirmation from "./components/FormStages/Confirmation";
 
 type planType = {
 	name: string;

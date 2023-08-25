@@ -1,6 +1,6 @@
 import { FormPropsInterface } from "./Form1";
 import { useEffect, useState } from "react";
-import "../styles/Form4.sass";
+import "../../styles/FormStyles/Form4.sass";
 import { v4 } from "uuid";
 
 export default function Form4({ formData }: FormPropsInterface) {

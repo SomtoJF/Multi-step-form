@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import arcadeIcon from "../assets/icon-arcade.svg";
-import advancedIcon from "../assets/icon-advanced.svg";
-import proIcon from "../assets/icon-pro.svg";
-import "../styles/Form2.sass";
+import arcadeIcon from "../../assets/icon-arcade.svg";
+import advancedIcon from "../../assets/icon-advanced.svg";
+import proIcon from "../../assets/icon-pro.svg";
+import "../../styles/FormStyles/Form2.sass";
 import { v4 as uuidv4 } from "uuid";
 import Switch from "../Switch";
 import { FormPropsInterface } from "./Form1";
