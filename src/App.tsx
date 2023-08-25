@@ -24,7 +24,22 @@ const defaultFormData: FormDataInterface = {
 function App() {
 	const [currentStep, setCurrentStep] = useState(1);
 	const [formData, setFormData] = useState<FormDataInterface>(defaultFormData);
-	const [displayConfirmation, setdisplayConfirmation] = useState(false);
+	const [displayConfirmation, setDisplayConfirmation] = useState(false);
+
+	function handleConfirmation() {
+		if (areRequiredFieldsValid()) setDisplayConfirmation(true);
+	}
+	function areRequiredFieldsValid() {
+		if (formData.name == "" || formData.email == "" || formData.phone == "") {
+			setCurrentStep(1);
+			return false;
+		}
+		if (formData.plan.name == "") {
+			setCurrentStep(2);
+			return false;
+		}
+		return true;
+	}
 	return (
 		<div id="form-page">
 			<div id="popover">
@@ -53,10 +68,7 @@ function App() {
 								Next Step
 							</button>
 						) : (
-							<button
-								type="button"
-								onClick={() => setdisplayConfirmation(true)}
-							>
+							<button type="button" onClick={handleConfirmation}>
 								Confirm
 							</button>
 						)}
