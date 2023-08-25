@@ -6,6 +6,7 @@ import StepOne from "./components/Form1";
 import StepTwo from "./components/Form2";
 import StepThree from "./components/Form3";
 import StepFour from "./components/Form4";
+import Confirmation from "./components/Confirmation";
 
 type planType = {
 	name: string;
@@ -43,6 +44,7 @@ const defaultFormData: FormDataInterface = {
 function App() {
 	const [currentStep, setCurrentStep] = useState(1);
 	const [formData, setFormData] = useState<FormDataInterface>(defaultFormData);
+	const [displayConfirmation, setdisplayConfirmation] = useState(false);
 	return (
 		<div id="form-page">
 			<div id="popover">
@@ -55,9 +57,11 @@ function App() {
 							<StepTwo formData={formData} setFormData={setFormData} />
 						) : currentStep === 3 ? (
 							<StepThree formData={formData} setFormData={setFormData} />
-						) : currentStep === 4 ? (
+						) : currentStep === 4 && displayConfirmation ? (
+							<Confirmation />
+						) : (
 							<StepFour formData={formData} setFormData={setFormData} />
-						) : null}
+						)}
 					</div>
 					<section id="form-stepper-container">
 						{currentStep < 4 ? (
@@ -69,7 +73,12 @@ function App() {
 								Next Step
 							</button>
 						) : (
-							<button type="button">Confirm</button>
+							<button
+								type="button"
+								onClick={() => setdisplayConfirmation(true)}
+							>
+								Confirm
+							</button>
 						)}
 
 						{currentStep > 1 ? (
