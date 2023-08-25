@@ -23,7 +23,7 @@ export default function Form1({ formData, setFormData }: props) {
 	return (
 		<>
 			<h1>Personal info</h1>
-			<p id="information-paragraph">
+			<p className="information-paragraph">
 				Please provide your name, email address, and phone number.
 			</p>
 			<Label text="Name" htmlFor="name" watchedText={formData.name} />

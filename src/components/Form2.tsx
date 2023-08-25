@@ -58,7 +58,7 @@ export default function Form2({ formData, setFormData }: Form2PropInterface) {
 	return (
 		<>
 			<h1>Select your plan</h1>
-			<p id="information-paragraph">
+			<p className="information-paragraph">
 				You have the option of monthly or yearly billing.
 			</p>
 			<div className="plan-button-container">
