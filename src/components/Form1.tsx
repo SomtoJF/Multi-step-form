@@ -35,6 +35,7 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 				value={formData.name}
 				onChange={handleNameChange}
 				maxLength={50}
+				placeholder="e.g. Stephen King"
 				required
 			/>
 			<Label
@@ -48,6 +49,7 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 				value={formData.email}
 				onChange={handleEmailChange}
 				maxLength={25}
+				placeholder="e.g. stephenking@lorem.com"
 				required
 			/>
 			<Label text="Phone Number" htmlFor="phone" watchedText={formData.phone} />
