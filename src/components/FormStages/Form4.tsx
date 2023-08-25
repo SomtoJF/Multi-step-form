@@ -1,4 +1,4 @@
-import { FormPropsInterface } from "./Form1";
+import { FormPropsInterface } from "../../Types";
 import { useEffect, useState } from "react";
 import "../../styles/FormStyles/Form4.sass";
 import { v4 } from "uuid";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FormDataInterface, addOnType } from "../App";
+import { FormDataInterface, addOnType } from "../Types";
 import checkMarkIcon from "../assets/icon-checkmark.svg";
 
 type propType = {
