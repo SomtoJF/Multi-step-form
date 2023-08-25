@@ -13,11 +13,19 @@ type planType = {
 	isMonthlyPlan: boolean;
 };
 
+type addOnType = {
+	name: string;
+	description: string;
+	price: string;
+	isMonthlyPlan: boolean;
+};
+
 interface FormDataInterface {
 	name: string;
 	email: string;
 	phone: string;
 	plan: planType;
+	addOns: Array<addOnType | null>;
 }
 
 const defaultFormData: FormDataInterface = {
@@ -29,6 +37,7 @@ const defaultFormData: FormDataInterface = {
 		price: "",
 		isMonthlyPlan: true,
 	},
+	addOns: [],
 };
 
 function App() {
@@ -45,7 +54,7 @@ function App() {
 						) : currentStep === 2 ? (
 							<StepTwo formData={formData} setFormData={setFormData} />
 						) : currentStep === 3 ? (
-							<StepThree />
+							<StepThree formData={formData} setFormData={setFormData} />
 						) : currentStep === 4 ? (
 							<StepFour />
 						) : null}
@@ -80,4 +89,4 @@ function App() {
 }
 
 export default App;
-export type { FormDataInterface };
+export type { FormDataInterface, addOnType };
