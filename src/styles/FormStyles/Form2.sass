@@ -6,6 +6,9 @@
     justify-content: space-between
     gap: 10px
     height: 170px
+    .selected
+        border: solid 1px index.$purplish-blue
+        background-color: index.$magnolia
     &>button
         width: max(30%, 115px)
         box-sizing: border-box
@@ -33,6 +36,9 @@
                 text-align: left
             &>div:nth-child(2)
                 color: index.$cool-gray
+            &>div:nth-child(3)
+                color: index.$marine-blue
+                font-family: index.$font-regular
 
 @media all and (max-width: 760px) 
     .plan-button-container

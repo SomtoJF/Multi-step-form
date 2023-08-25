@@ -29,10 +29,6 @@ export default function Form2({ formData, setFormData }: FormPropsInterface) {
 	);
 	const [priceSuffix, setPriceSuffix] = useState<"/mo" | "/yr">("/mo");
 	const [displayMonthlyPlans, setDisplayMonthlyPlans] = useState(true);
-	const selectedPlanStyles = {
-		backgroundColor: "hsl(217, 100%, 97%)",
-		border: "solid 1px hsl(243, 100%, 62%)",
-	};
 	const handleDisplayChanges = () => {
 		setDisplayMonthlyPlans(!displayMonthlyPlans);
 	};
@@ -66,7 +62,7 @@ export default function Form2({ formData, setFormData }: FormPropsInterface) {
 					<button
 						key={uuidv4()}
 						onClick={() => setFormData({ ...formData, plan: plan, addOns: [] })}
-						style={formData.plan == plan ? selectedPlanStyles : {}}
+						className={formData.plan == plan ? "selected" : ""}
 					>
 						<img
 							src={plansInformation.icons[index]}
@@ -75,6 +71,7 @@ export default function Form2({ formData, setFormData }: FormPropsInterface) {
 						<div className="plan-info">
 							<div>{plan.name}</div>
 							<div>${plan.price + priceSuffix}</div>
+							{!plan.isMonthlyPlan ? <div>2 months free</div> : null}
 						</div>
 					</button>
 				))}
