@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import { FormDataInterface } from "../App";
+import { AsYouType } from "libphonenumber-js";
 import Label from "./Label";
 
 interface FormPropsInterface {
@@ -17,7 +18,8 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 	};
 
 	const handlePhoneChange = (e: FormEvent<HTMLInputElement>) => {
-		setFormData({ ...formData, phone: e.currentTarget.value });
+		const formatter = new AsYouType();
+		setFormData({ ...formData, phone: formatter.input(e.currentTarget.value) });
 	};
 
 	return (
@@ -32,6 +34,7 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 				id="name"
 				value={formData.name}
 				onChange={handleNameChange}
+				maxLength={50}
 				required
 			/>
 			<Label
@@ -44,6 +47,7 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 				id="email"
 				value={formData.email}
 				onChange={handleEmailChange}
+				maxLength={25}
 				required
 			/>
 			<Label text="Phone Number" htmlFor="phone" watchedText={formData.phone} />
@@ -53,6 +57,7 @@ export default function Form1({ formData, setFormData }: FormPropsInterface) {
 				id="phone"
 				value={formData.phone}
 				onChange={handlePhoneChange}
+				maxLength={17}
 				required
 			/>
 		</>
