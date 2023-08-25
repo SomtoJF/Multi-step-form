@@ -1,13 +1,14 @@
 import { FormEvent } from "react";
 import { FormDataInterface } from "../App";
+import { AsYouType } from "libphonenumber-js";
 import Label from "./Label";
 
-type props = {
+interface FormPropsInterface {
 	formData: FormDataInterface;
 	setFormData: (object: FormDataInterface) => void;
-};
+}
 
-export default function Form1({ formData, setFormData }: props) {
+export default function Form1({ formData, setFormData }: FormPropsInterface) {
 	const handleNameChange = (e: FormEvent<HTMLInputElement>) => {
 		setFormData({ ...formData, name: e.currentTarget.value });
 	};
@@ -17,13 +18,14 @@ export default function Form1({ formData, setFormData }: props) {
 	};
 
 	const handlePhoneChange = (e: FormEvent<HTMLInputElement>) => {
-		setFormData({ ...formData, phone: e.currentTarget.value });
+		const formatter = new AsYouType();
+		setFormData({ ...formData, phone: formatter.input(e.currentTarget.value) });
 	};
 
 	return (
 		<>
 			<h1>Personal info</h1>
-			<p id="information-paragraph">
+			<p className="information-paragraph">
 				Please provide your name, email address, and phone number.
 			</p>
 			<Label text="Name" htmlFor="name" watchedText={formData.name} />
@@ -32,6 +34,7 @@ export default function Form1({ formData, setFormData }: props) {
 				id="name"
 				value={formData.name}
 				onChange={handleNameChange}
+				maxLength={50}
 				required
 			/>
 			<Label
@@ -44,6 +47,7 @@ export default function Form1({ formData, setFormData }: props) {
 				id="email"
 				value={formData.email}
 				onChange={handleEmailChange}
+				maxLength={25}
 				required
 			/>
 			<Label text="Phone Number" htmlFor="phone" watchedText={formData.phone} />
@@ -53,8 +57,11 @@ export default function Form1({ formData, setFormData }: props) {
 				id="phone"
 				value={formData.phone}
 				onChange={handlePhoneChange}
+				maxLength={17}
 				required
 			/>
 		</>
 	);
 }
+
+export type { FormPropsInterface };

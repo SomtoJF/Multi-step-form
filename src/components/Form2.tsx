@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
-import { FormDataInterface } from "../App";
 import arcadeIcon from "../assets/icon-arcade.svg";
 import advancedIcon from "../assets/icon-advanced.svg";
 import proIcon from "../assets/icon-pro.svg";
 import "../styles/Form2.sass";
 import { v4 as uuidv4 } from "uuid";
 import Switch from "./Switch";
-
-type Form2PropInterface = {
-	formData: FormDataInterface;
-	setFormData: (object: FormDataInterface) => void;
-};
+import { FormPropsInterface } from "./Form1";
 
 type displayedPlanTypeInterface = "Monthly" | "Yearly";
 
@@ -28,7 +23,7 @@ const plansInformation = {
 	],
 };
 
-export default function Form2({ formData, setFormData }: Form2PropInterface) {
+export default function Form2({ formData, setFormData }: FormPropsInterface) {
 	const [displayedPlans, setDisplayedPlans] = useState(
 		plansInformation.monthly
 	);
@@ -58,14 +53,14 @@ export default function Form2({ formData, setFormData }: Form2PropInterface) {
 	return (
 		<>
 			<h1>Select your plan</h1>
-			<p id="information-paragraph">
+			<p className="information-paragraph">
 				You have the option of monthly or yearly billing.
 			</p>
 			<div className="plan-button-container">
 				{displayedPlans.map((plan, index) => (
 					<button
 						key={uuidv4()}
-						onClick={() => setFormData({ ...formData, plan: plan })}
+						onClick={() => setFormData({ ...formData, plan: plan, addOns: [] })}
 						style={formData.plan == plan ? selectedPlanStyles : {}}
 					>
 						<img

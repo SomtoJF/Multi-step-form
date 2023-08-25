@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/uuid": "^9.0.2",
     "gsap": "^3.12.2",
+    "libphonenumber-js": "^1.10.41",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
