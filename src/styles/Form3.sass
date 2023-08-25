@@ -12,6 +12,20 @@
     border-radius: 10px
     transition: 500ms
     row-gap: 7px
+    padding: 15px 10px
+    box-sizing: border-box
+
+    &.selected
+        border: solid 1px index.$purplish-blue
+        .checkbox
+            background-color: index.$purplish-blue
+            display: flex
+            justify-content: center
+            align-items: center
+        .checkbox>img
+            width: 100%
+            height: auto
+
 
     &>*
         text-align: left
@@ -29,6 +43,7 @@
 
     &>h3
         color: index.$marine-blue
+        height: 100%
         width: 100%
         margin: 0px
         padding: 0px
@@ -36,6 +51,7 @@
 
     &>p
         grid-column: 2/3
+        height: 100%
         margin: 0px
         padding: 0px
         width: 100%
