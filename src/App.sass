@@ -15,11 +15,27 @@
 
   #popover
     background-color: index.$light-background-color
-    width: 60%
-    height: 80%
+    width: 70%
+    height: min(80%, 700px)
     border-radius: 15px
     padding: 10px
+    padding-top: 0px
     box-sizing: border-box
     display: flex
     justify-content: space-between
     align-items: center
+
+@media all and (max-width: 1045px) 
+  #form-page #popover
+    width: 90%
+
+@media all and (max-height: 650px) 
+  #form-page #popover
+    height: 90%
+
+@media all and (max-width: 760px) 
+  #form-page #popover
+    flex-direction: column
+    width: 100vw
+    height: 100vh
+    background-color: transparent
