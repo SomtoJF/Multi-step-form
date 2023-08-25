@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./App.sass";
 import SideBar from "./components/SideBar";
 import "./styles/Form.sass";
-import StepOne from "./components/Form1";
-import StepTwo from "./components/Form2";
-import StepThree from "./components/Form3";
-import StepFour from "./components/Form4";
+import StepOne from "./components/FormStages/Form1";
+import StepTwo from "./components/FormStages/Form2";
+import StepThree from "./components/FormStages/Form3";
+import StepFour from "./components/FormStages/Form4";
 import Confirmation from "./components/Confirmation";
 
 type planType = {

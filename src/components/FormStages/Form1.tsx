@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
-import { FormDataInterface } from "../App";
+import { FormDataInterface } from "../../App";
 import { AsYouType } from "libphonenumber-js";
-import Label from "./Label";
+import Label from "../Label";
 
 interface FormPropsInterface {
 	formData: FormDataInterface;
