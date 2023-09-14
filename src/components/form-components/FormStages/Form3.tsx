@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import "../../styles/FormStyles/Form3.sass";
+import "../../../styles/FormStyles/Form3.sass";
 import AddOnItem from "../AddOnItem";
 import { v4 as uuidv4 } from "uuid";
-import { FormPropsInterface } from "../../Types";
+import { FormPropsInterface } from "../../../Types";
 
 const addOns = {
 	monthly: [

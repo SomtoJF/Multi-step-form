@@ -1,6 +1,6 @@
-import { FormPropsInterface } from "../../Types";
+import { FormPropsInterface } from "../../../Types";
 import { useEffect, useState } from "react";
-import "../../styles/FormStyles/Form4.sass";
+import "../../../styles/FormStyles/Form4.sass";
 import { v4 } from "uuid";
 
 interface FormFourProps extends FormPropsInterface {

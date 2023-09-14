@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { FormPropsInterface } from "../../Types";
+import { FormPropsInterface } from "../../../Types";
 import { AsYouType } from "libphonenumber-js";
 import Label from "../Label";
 

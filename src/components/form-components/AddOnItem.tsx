@@ -1,5 +1,5 @@
-import { FormDataInterface, addOnType } from "../Types";
-import checkMarkIcon from "../assets/icon-checkmark.svg";
+import { FormDataInterface, addOnType } from "../../Types";
+import checkMarkIcon from "../../assets/icon-checkmark.svg";
 
 type propType = {
 	item: addOnType;

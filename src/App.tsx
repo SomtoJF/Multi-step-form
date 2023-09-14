@@ -3,8 +3,8 @@ import "./App.sass";
 import SideBar from "./components/SideBar";
 import "./styles/FormStyles/Form.sass";
 import { FormDataInterface } from "./Types";
-import Form from "./components/Form";
-import FormStepper from "./components/FormStepper";
+import Form from "./components/form-components/Form";
+import FormStepper from "./components/form-components/FormStepper";
 
 const defaultFormData: FormDataInterface = {
 	name: "",

@@ -3,7 +3,7 @@ import StepTwo from "./FormStages/Form2";
 import StepThree from "./FormStages/Form3";
 import StepFour from "./FormStages/Form4";
 import Confirmation from "./FormStages/Confirmation";
-import { FormDataInterface } from "../Types";
+import { FormDataInterface } from "../../Types";
 
 interface formProps {
 	currentStep: number;

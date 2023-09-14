@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../styles/Switch.sass";
-import { displayedPlanTypeInterface } from "./FormStages/Form2";
+import { displayedPlanTypeInterface } from "./form-components/FormStages/Form2";
 import gsap from "gsap";
 
 type SwitchProps = {
