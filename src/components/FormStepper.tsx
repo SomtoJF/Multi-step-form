@@ -2,12 +2,16 @@ interface formStepperProps {
 	currentStep: number;
 	setCurrentStep: (step: number) => void;
 	handleConfirmation: () => void;
+	displayConfirmation: boolean;
+	setDisplayConfirmation: (bool: boolean) => void;
 }
 
 const FormStepper = ({
 	currentStep,
 	setCurrentStep,
 	handleConfirmation,
+	displayConfirmation,
+	setDisplayConfirmation,
 }: formStepperProps) => {
 	const renderNextButton = () => {
 		if (currentStep < 4) {
@@ -22,7 +26,11 @@ const FormStepper = ({
 			);
 		}
 		return (
-			<button type="button" onClick={handleConfirmation}>
+			<button
+				type="button"
+				disabled={displayConfirmation === true}
+				onClick={handleConfirmation}
+			>
 				Confirm
 			</button>
 		);
@@ -34,7 +42,10 @@ const FormStepper = ({
 				<button
 					type="button"
 					className="back-button"
-					onClick={() => setCurrentStep(currentStep - 1)}
+					onClick={() => {
+						setCurrentStep(currentStep - 1);
+						setDisplayConfirmation(false);
+					}}
 				>
 					Go Back
 				</button>

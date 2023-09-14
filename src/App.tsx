@@ -53,6 +53,8 @@ function App() {
 							currentStep={currentStep}
 							setCurrentStep={setCurrentStep}
 							handleConfirmation={handleConfirmation}
+							displayConfirmation={displayConfirmation}
+							setDisplayConfirmation={setDisplayConfirmation}
 						/>
 					</section>
 				</form>
