@@ -2,12 +2,9 @@ import { useState } from "react";
 import "./App.sass";
 import SideBar from "./components/SideBar";
 import "./styles/FormStyles/Form.sass";
-import StepOne from "./components/FormStages/Form1";
-import StepTwo from "./components/FormStages/Form2";
-import StepThree from "./components/FormStages/Form3";
-import StepFour from "./components/FormStages/Form4";
-import Confirmation from "./components/FormStages/Confirmation";
 import { FormDataInterface } from "./Types";
+import Form from "./components/Form";
+import FormStepper from "./components/FormStepper";
 
 const defaultFormData: FormDataInterface = {
 	name: "",
@@ -45,43 +42,18 @@ function App() {
 			<div id="popover">
 				<SideBar currentStep={currentStep} setCurrentStep={setCurrentStep} />
 				<form action="">
-					<div className="form-fields">
-						{currentStep === 1 ? (
-							<StepOne formData={formData} setFormData={setFormData} />
-						) : currentStep === 2 ? (
-							<StepTwo formData={formData} setFormData={setFormData} />
-						) : currentStep === 3 ? (
-							<StepThree formData={formData} setFormData={setFormData} />
-						) : currentStep === 4 && displayConfirmation ? (
-							<Confirmation />
-						) : (
-							<StepFour formData={formData} setFormData={setFormData} />
-						)}
-					</div>
+					<Form
+						currentStep={currentStep}
+						formData={formData}
+						setFormData={setFormData}
+						displayConfirmation={displayConfirmation}
+					/>
 					<section id="form-stepper-container">
-						{currentStep < 4 ? (
-							<button
-								type="button"
-								className="next-button"
-								onClick={() => setCurrentStep(currentStep + 1)}
-							>
-								Next Step
-							</button>
-						) : (
-							<button type="button" onClick={handleConfirmation}>
-								Confirm
-							</button>
-						)}
-
-						{currentStep > 1 ? (
-							<button
-								type="button"
-								className="back-button"
-								onClick={() => setCurrentStep(currentStep - 1)}
-							>
-								Go Back
-							</button>
-						) : null}
+						<FormStepper
+							currentStep={currentStep}
+							setCurrentStep={setCurrentStep}
+							handleConfirmation={handleConfirmation}
+						/>
 					</section>
 				</form>
 			</div>
