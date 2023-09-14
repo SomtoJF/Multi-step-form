@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { FormDataInterface, addOnType } from "../Types";
 import checkMarkIcon from "../assets/icon-checkmark.svg";
 
@@ -9,16 +8,12 @@ type propType = {
 };
 
 export default function AddOnItem({ item, formData, setFormData }: propType) {
-	const [isSelected, setIsSelected] = useState(false);
+	const isItemSelected = formData.addOns.includes(item);
 
-	const getSuffix = formData.plan.isMonthlyPlan ? "/mo" : "/yr";
-
-	useEffect(() => {
-		formData.addOns.includes(item) ? setIsSelected(true) : setIsSelected(false);
-	}, [formData.addOns]);
+	const suffix = formData.plan.isMonthlyPlan ? "/mo" : "/yr";
 
 	function handleAddOnSelection() {
-		isSelected ? removeThisItem() : addThisItem();
+		isItemSelected ? removeThisItem() : addThisItem();
 	}
 	function addThisItem() {
 		setFormData({ ...formData, addOns: formData.addOns.concat(item) });
@@ -31,15 +26,17 @@ export default function AddOnItem({ item, formData, setFormData }: propType) {
 	}
 	return (
 		<div
-			className={isSelected ? "add-on-item selected" : "add-on-item"}
+			className={isItemSelected ? "add-on-item selected" : "add-on-item"}
 			onClick={handleAddOnSelection}
 		>
 			<button type="button" className="checkbox">
-				{isSelected ? <img src={checkMarkIcon} alt="checkmark-icon" /> : null}
+				{isItemSelected ? (
+					<img src={checkMarkIcon} alt="checkmark-icon" />
+				) : null}
 			</button>
 			<h3>{item.name}</h3>
 			<p>{item.description}</p>
-			<div>+${item.price + getSuffix}</div>
+			<div>+${item.price + suffix}</div>
 		</div>
 	);
 }
