@@ -10,6 +10,7 @@ interface formProps {
 	formData: FormDataInterface;
 	setFormData: (data: FormDataInterface) => void;
 	displayConfirmation: boolean;
+	setCurrentStep: (step: number) => void;
 }
 
 export default function Form({
@@ -17,6 +18,7 @@ export default function Form({
 	formData,
 	setFormData,
 	displayConfirmation,
+	setCurrentStep,
 }: formProps) {
 	return (
 		<div className="form-fields">
@@ -29,7 +31,11 @@ export default function Form({
 			) : currentStep === 4 && displayConfirmation ? (
 				<Confirmation />
 			) : (
-				<StepFour formData={formData} setFormData={setFormData} />
+				<StepFour
+					formData={formData}
+					setFormData={setFormData}
+					setCurrentStep={setCurrentStep}
+				/>
 			)}
 		</div>
 	);

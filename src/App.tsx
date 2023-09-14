@@ -47,6 +47,7 @@ function App() {
 						formData={formData}
 						setFormData={setFormData}
 						displayConfirmation={displayConfirmation}
+						setCurrentStep={setCurrentStep}
 					/>
 					<section id="form-stepper-container">
 						<FormStepper

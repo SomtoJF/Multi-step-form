@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import "../../styles/FormStyles/Form4.sass";
 import { v4 } from "uuid";
 
-export default function Form4({ formData }: FormPropsInterface) {
+interface FormFourProps extends FormPropsInterface {
+	setCurrentStep: (step: number) => void;
+}
+
+export default function Form4({ formData, setCurrentStep }: FormFourProps) {
 	const [isMonthlyPlanSelected] = useState(
 		formData.plan.isMonthlyPlan ? true : false
 	);
@@ -31,7 +35,9 @@ export default function Form4({ formData }: FormPropsInterface) {
 						<h4>{`${formData.plan.name} ${
 							isMonthlyPlanSelected ? "(Monthly)" : "(Yearly)"
 						}`}</h4>
-						<button type="button">Change</button>
+						<button type="button" onClick={() => setCurrentStep(2)}>
+							Change
+						</button>
 					</div>
 
 					<h4>${formData.plan.price + planSuffix}</h4>
