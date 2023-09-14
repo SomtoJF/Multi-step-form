@@ -8,9 +8,7 @@ interface FormFourProps extends FormPropsInterface {
 }
 
 export default function Form4({ formData, setCurrentStep }: FormFourProps) {
-	const [isMonthlyPlanSelected] = useState(
-		formData.plan.isMonthlyPlan ? true : false
-	);
+	const isMonthlyPlanSelected = formData.plan.isMonthlyPlan;
 	const [totalPrice, setTotalPrice] = useState(0);
 	useEffect(() => {
 		let valueOfAddOns = 0;
@@ -22,7 +20,8 @@ export default function Form4({ formData, setCurrentStep }: FormFourProps) {
 		}
 		setTotalPrice(formData.plan.price + valueOfAddOns);
 	}, []);
-	const planSuffix: "/mo" | "/yr" = isMonthlyPlanSelected ? "/mo" : "/yr";
+	const planSuffix = isMonthlyPlanSelected ? "/mo" : "/yr";
+
 	return (
 		<>
 			<h1>Finishing up</h1>
